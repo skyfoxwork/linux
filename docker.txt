@@ -1,0 +1,65 @@
+Docker linux
+
+===============================================================================
+DOCKER ENGINE (DOCKER DAEMON)
+-------------------------------------------------------------------------------
+===== Docker Status =====
+
+systemctl status docker      - show Docker status
+sudo docker run hello-world  - test Docker
+-------------------------------------------------------------------------------
+===== Docker Start =====
+
+sudo systemctl start docker  - start Docker
+sudo docker run hello-world  - test Docker
+-------------------------------------------------------------------------------
+===== Docker Stop =====
+
+sudo systemctl stop docker           - stop Docker
+sudo systemctl stop docker.socket    - stop Docker socket
+sudo systemctl stop docker.service   - stop Docker service
+-------------------------------------------------------------------------------
+===== Docker Autostart =====
+
+sudo systemctl disable docker.service - disable Docker service autostart
+sudo systemctl disable docker.socket  - disable Docker socket autostart
+
+sudo systemctl enable docker.service  - enable Docker service autostart
+sudo systemctl enable docker.socket   - enable Docker socket autostart
+-------------------------------------------------------------------------------
+===== Docker Reload =====
+
+sudo systemctl daemon-reload - reload systemd configuration
+
+===============================================================================
+DOCKER DESKTOP
+-------------------------------------------------------------------------------
+===== Docker Desktop Status =====
+
+systemctl --user status docker-desktop - show Docker Desktop status
+docker version                         - show Docker client and server status
+-------------------------------------------------------------------------------
+===== Docker Desktop Start =====
+
+systemctl --user start docker-desktop  - start Docker Desktop
+docker run hello-world                 - test Docker
+
+-------------------------------------------------------------------------------
+===== Docker Desktop Stop =====
+
+systemctl --user stop docker-desktop - stop Docker Desktop
+-------------------------------------------------------------------------------
+===== Docker Desktop Autostart =====
+
+systemctl --user disable docker-desktop  - disable Docker Desktop autostart
+systemctl --user enable docker-desktop   - enable Docker Desktop autostart
+-------------------------------------------------------------------------------
+===== Docker Desktop Restart =====
+
+systemctl --user restart docker-desktop  - restart Docker Desktop
+-------------------------------------------------------------------------------
+===== Docker Desktop Reload =====
+
+systemctl --user daemon-reload  - reload user systemd configuration
+===============================================================================
+

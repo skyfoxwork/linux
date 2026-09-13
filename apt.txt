@@ -1,0 +1,98 @@
+APT (Advanced Package Tool)
+dpkg (Package Manager For Debia)
+
+apt, apt-get, dpkg
+
+Official web catalog of Ubuntu packages: https://packages.ubuntu.com/
+-------------------------------------------------------------------------------
+===== docs =====
+man apt
+apt --help
+-------------------------------------------------------------------------------
+===== update (system and packages) =====
+sudo apt update - update package lists
+sudo apt upgrade - upgrade installed packages
+sudo apt full-upgrade - upgrade packages and handle dependency changes
+-------------------------------------------------------------------------------
+===== history =====
+apt history-list
+
+dir: /var/log/apt/history.log
+-------------------------------------------------------------------------------
+===== installed packages =====
+apt history-list | grep install
+
+apt list                     - show all available packages
+apt list | less              - show packages page by page
+apt list --installed         - show installed packages
+apt list --manual-installed  - show manually installed local packages (details)
+apt-mark showmanual           - show manually installed package names
+
+dpkg -l                      - show installed packages
+dpkg -l | grep <package>     - find installed package
+
+grep -E "apt install|apt-get install" /var/log/apt/history.log
+-------------------------------------------------------------------------------
+===== package data =====
+apt search <package name>  - search for a package
+apt show <package name>    - show package information
+
+apt policy <package>       - show installed/candidate versions and repositories
+apt-cache policy <package> - show package versions and repositories
+apt-cache show <package>   - show package information
+-------------------------------------------------------------------------------
+===== install =====
+sudo apt install <package>              - install a package
+sudo apt install --reinstall <package>  - reinstall a package
+sudo apt install <package>=<version>    - install a specific package version
+-------------------------------------------------------------------------------
+===== remove =====
+sudo apt remove <package>  - remove a package
+sudo apt purge <package>   - remove a package and its configuration files
+-------------------------------------------------------------------------------
+===== cleanup =====
+sudo apt autoremove        - remove unused dependencies
+sudo apt autoclean         - remove obsolete package files (.deb)
+sudo apt clean             - remove all downloaded package files (.deb)
+
+dir: /var/cache/apt/archives/
+-------------------------------------------------------------------------------
+===== package files =====
+dpkg -L <package>       - show files installed by a package
+dpkg -S <file>          - find which package owns a file
+apt-file search <file>  - search packages containing a file
+-------------------------------------------------------------------------------
+===== package versions =====
+apt list --upgradable        - show packages that can be upgraded
+apt policy                   - show repository and package priorities
+apt-cache madison <package>  - show available package versions
+-------------------------------------------------------------------------------
+===== repair =====
+sudo apt --fix-broken install  - fix broken dependencies
+sudo dpkg --configure -a       - configure unpacked packages
+sudo apt install -f            - fix broken dependencies
+
+===============================================================================
+Most used commands:
+  list - list packages based on package names
+  search - search in package descriptions
+  show - show package details
+  install - install packages
+  reinstall - reinstall packages
+  remove - remove packages
+  autoremove - automatically remove all unused packages
+  update - update list of available packages
+  upgrade - upgrade the system by installing/upgrading packages
+  full-upgrade - upgrade the system by removing/installing/upgrading packages
+  history-list - show list of history
+  history-info - show info on specific transactions
+  history-redo - redo transactions
+  history-undo - undo transactions
+  history-rollback - rollback transactions
+  edit-sources - edit the source information file
+  modernize-sources - modernize .list files to .sources files
+  satisfy - satisfy dependency strings
+  why - produce a reason trace for the current state of the package
+  why-not - produce a reason trace for the current state of the packag
+===============================================================================
+
